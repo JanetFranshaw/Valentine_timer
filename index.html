@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urgent Update Needed</title>
+    <style>
+        body {
+            background-color: #fce4ec;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+            max-width: 450px;
+        }
+        h1 { color: #880e4f; font-size: 1.8rem; margin: 10px 0; }
+        .warning-icon { font-size: 3.5rem; margin-bottom: 10px; }
+        .gif-container img { width: 100%; border-radius: 10px; margin: 20px 0; }
+        .buttons { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+        .btn {
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: 0.2s;
+        }
+        .fix-btn { background-color: #e91e63; color: white; }
+        .careless-btn { background-color: #eeeeee; color: #757575; }
+        .back-btn { background: none; color: #ad1457; text-decoration: underline; margin-top: 15px; border: none; cursor: pointer; }
+        .btn:hover { opacity: 0.9; transform: scale(1.02); }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="main-card">
+        <div id="content-area">
+            <div class="warning-icon">⚠️</div>
+            <h1>Internal Memo: Lack of Valentine's Initiative</h1>
+            <p>It has come to my attention that as of Feb 2nd, I still haven't been asked to be your Valentine. This is... an interesting choice on your part.</p>
+            
+            <div class="buttons">
+                <button class="btn fix-btn" onclick="showFix()">I wanna fix it</button>
+                <button class="btn careless-btn" onclick="showDisappointment()">Nah, I don't care about Valentine's</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const landingPageHTML = document.getElementById('content-area').innerHTML;
+
+        function showFix() {
+            document.getElementById('content-area').innerHTML = `
+                <h1>Crisis Averted.</h1>
+                <p>Smart move. I expect a formal proposal (with dinner details) by the end of the day.</p>
+                <div class="gif-container">
+                    <img src="https://media.giphy.com/media/S9oNGC1E42VT2JRysv/giphy.gif" alt="Happy">
+                </div>
+                <button class="back-btn" onclick="goBack()">Actually, take me back to the options</button>
+            `;
+        }
+
+        function showDisappointment() {
+            document.getElementById('content-area').innerHTML = `
+                <h1>Oh, really?</h1>
+                <p>Bold move. Let's see how that works out for you for the rest of the month.</p>
+                <div class="gif-container">
+                    <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueG56bm56bm56bm56bm56bm56bm56bm56bm56bm56bm56bm56JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/6108S7N2o1KJS/giphy.gif" alt="Disappointed">
+                </div>
+                <button class="btn fix-btn" onclick="showTimer()">I WAS JOKING, I WANNA FIX IT!</button>
+            `;
+        }
+
+        function showTimer() {
+            document.getElementById('content-area').innerHTML = `
+                <h1>Time is running out...</h1>
+                <p>Tick tock. The window for a "proper" proposal is closing rapidly.</p>
+                <div class="gif-container">
+                    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueG56bm56bm56bm56bm56bm56bm56bm56bm56bm56bm56bm56bm56JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/Qz4PP7RDHGInV5nSfv/giphy.gif" alt="Ticking Clock">
+                </div>
+                <button class="btn fix-btn" onclick="showFix()">OKAY, I'LL ASK NOW!</button>
+                <button class="back-btn" onclick="goBack()">Back to start</button>
+            `;
+        }
+
+        function goBack() {
+            document.getElementById('content-area').innerHTML = landingPageHTML;
+        }
+    </script>
+</body>
+</html>
